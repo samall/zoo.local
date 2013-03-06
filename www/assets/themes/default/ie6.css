@@ -1,0 +1,78 @@
+.select .arrow{
+	font-size:0px;
+}
+.nav_bar li a, .nav_bar li span{
+	display:inline-block;
+	zoom:1;
+	position:relative;
+}
+#content{
+	position:relative;
+}
+#content .left{
+	margin-right:-200px;
+}
+#content .left .rainbow{
+	font-size:0px;
+}
+#content .left .categories{
+	overflow:hidden;
+	height:24px;
+}
+	#content .left .categories li a{
+		display:inline-block;
+		position:relative;
+		zoom:1;
+	}
+#content .left .offers_slider .slider{
+	width:855px;
+	overflow-x:hidden;
+	zoom:1;
+}
+#content .left .offers_slider .shadow{
+	bottom:-18px;
+	font-size:0px;
+}
+#content .left .offers_slider .arrows, #content .left .agencies .arrows, #content .left .experts .arrows{
+	height:expression(this.parentNode.offsetHeight + 'px');
+}
+#content .left .arrows .r_arrow{
+	margin-right:8px;
+}
+#header .menu{
+	position:relative;
+	zoom:1;
+}
+	.option_wrapper{
+		position:absolute;
+	}
+.btn_center span{
+	display:inline-block;
+}
+#content .left .more_services, #content .left .all_offers, #content .left .my_agents{
+	margin-right:-65px;
+}
+.checkbox{
+	font-size:0px;
+	overflow:hidden;
+}
+.popup{
+	background:none;
+	position:absolute;
+	top:0px;
+	left:0px;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/popup_shadow.png', sizingMethod='scale');
+}
+.btn1 span, .btn2 span, .btn3 span, .btn4 span{
+	display:inline-block;
+}
+#header .btn1 span, #header .btn2 span, #header .btn3 span, #header .btn4 span{
+	display:block;
+}
+#content .left .left_side{
+	zoom:1;
+	overflow:hidden;
+}
+	#content .left .left_side .parameters, #content .left .left_side .parameters div p, #content .left p.title{
+		zoom:1;
+	}

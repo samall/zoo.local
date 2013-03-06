@@ -1,0 +1,82 @@
+.auto_width{
+	text-justify:newspaper;
+}
+	.auto_width li{
+		vertical-align:top;
+		display:inline;
+		zoom:1;
+	}
+
+.center_middle{
+	position:absolute;
+	top:50%;
+}
+	.center_inner{
+		position:relative;
+		top:-50%;
+	}
+
+#page{
+	position:relative;
+}
+#header .offers_profile .profile{
+	float:none;
+}
+
+.option_wrapper, #header .menu, #content, #content .premium_top, #content .offers, #content .left .offers_slider, #content .left .my_agents, #content .left .agencies, #content .left .experts, #content .left .help .answer{
+	zoom:1;
+}
+.nav_bar ul{
+	display:inline!important;
+}
+#content .left .arrows .r_arrow{
+	margin-right:16px;
+}
+#header .menu .filters table .select_wrapper{
+	display:inline;
+}
+
+#content .left .all_offers .offer_wrapper .offer_details .available_services .checkbox{
+	position:absolute;
+	top:2px;
+	right:0px;
+}
+#content .left .user_data td.row1{
+	white-space:pre;
+}
+#content .left .user_data .captcha{
+	float:right!important;
+}
+#content .left .ask_question .question_form{
+	zoom:1;
+}
+#content .left .ask_question .question_form .btn1{
+	float:left;
+}
+#content .left .ask_question .question_form .btn1.fl_r{
+	float:right;
+}
+.btn1, .btn2, .btn3, .btn4{
+	display:inline;
+}
+#header .menu{
+	position:relative;
+}
+#header .menu .filters{
+	position:relative;
+	z-index:10;
+}
+#content .left .create_offer td.row1{
+	width:165px;
+}
+#content .left p.title,#content .left .left_side .parameters div p{
+	position:relative;
+}
+	#content .left p.title .price, #content .left p.title a, #content .left .left_side .parameters div p span{
+		position:absolute;
+		right:0px;
+		bottom:0px;
+	}
+#content .left .right_side .photos .little{
+	margin-right:-4px;
+}

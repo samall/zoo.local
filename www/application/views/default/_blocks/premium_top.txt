@@ -1,0 +1,37 @@
+<div class="premium_top">
+				<a href="#" class="to_premium">Как сюда попасть?</a>
+				<p class="premium_title">Премиум</p>
+				
+				
+				<div class="premium_offer">
+					<a class="img" href="#"><img alt="" src="/assets/images/premium_house_top.jpg""></a>
+					<a class="title" href="#">Эксклюзивный дом в стиле минимал хай тек</a>
+				</div>
+
+				<div class="premium_offer">
+					<a class="img" href="#"><img alt="" src="/assets/images/premium_house_top.jpg""></a>
+					<a class="title" href="#">Эксклюзивный дом в стиле минимал хай тек</a>
+				</div>
+
+				<div class="premium_offer">
+					<a class="img" href="#"><img alt="" src="/assets/images/premium_house_top.jpg""></a>
+					<a class="title" href="#">Эксклюзивный дом в стиле минимал хай тек</a>
+				</div>
+
+				<div class="premium_offer">
+					<a class="img" href="#"><img alt="" src="/assets/images/premium_house_top.jpg""></a>
+					<a class="title" href="#">Эксклюзивный дом в стиле минимал хай тек</a>
+				</div>
+
+				<div class="premium_offer">
+					<a class="img" href="#"><img alt="" src="/assets/images/premium_house_top.jpg""></a>
+					<a class="title" href="#">Эксклюзивный дом в стиле минимал хай тек</a>
+				</div>
+
+				<div class="premium_offer">
+					<a class="img" href="#"><img alt="" src="/assets/images/premium_house_top.jpg"></a>
+					<a class="title" href="#">Эксклюзивный дом в стиле минимал хай тек</a>
+				</div>
+
+				<div class="clear"></div>
+			</div>
