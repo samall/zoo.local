@@ -61,6 +61,7 @@ button{
 }
 a:hover{
 }
+/*Подключение шрифта MyriadPro*/
 @font-face{
 	font-family:'MyriadProCondWeb';
 	src:url('fonts/myriadprocond.eot');
@@ -71,6 +72,15 @@ a:hover{
 	font-weight:normal;
 	font-style:normal;
 }
+/*Искажение шрифта для Хрома и Оперы
+@media all and (-webkit-min-device-pixel-ratio:0) {
+    @font-face {
+    font-family: 'MyriadChrome';
+    src:url('fonts/myriadprocond.svg#MyriadProCondWeb') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    }
+}*/
 /*  Равномерное распределение ширины по списку  */
 ul.auto_width{
 	margin:0;
@@ -82,7 +92,7 @@ ul.auto_width{
 	.auto_width li{
 		display:-moz-inline-box;
 		display:inline-block;
-		text-align:left;
+		text-align:center;
 		line-height:normal;
 		font-size:16px;
 		vertical-align:top;
@@ -209,7 +219,6 @@ textarea{
 	}
 		.file_wrapper .file_address input{
 			width:425px!important;
-		/*	width:123px!important;*/
 			margin-right:5px;
 			font-size:16px;
 		}
@@ -385,7 +394,7 @@ textarea{
 	.popup .popup_content{
 		overflow:hidden;
 		background:#e9e9e9;
-		font-size:16px;
+		font-size:18px;
 		padding:20px 20px 10px;
 		text-align:left;
 	}
@@ -394,7 +403,7 @@ textarea{
 		}
 			.popup .popup_content table td{
 				width:25%;
-				padding:0px 0px 5px;
+				padding:0px 0px 8px;
 			}
 		.popup .popup_content .btn_center.close{
 			margin-bottom:00px;
@@ -449,13 +458,13 @@ textarea{
 		position:absolute;
 		left:31px;
 		top:12px;
-		width:182px;
-		height:122px;
+		width:225px;
+		height:151px;
 	}
 
 	/*  социальные кнопки  */
 	#header .social{
-		top:13px;
+		top:12px;
 		right:25px;
 	}
 
@@ -537,7 +546,7 @@ textarea{
 					height:26px;
 					padding-bottom:1px;
 					text-align:center;
-					font-size:15px;
+					font-size:18px;
 					vertical-align:top;
 					color:#a8a7a7;
 					cursor:pointer;
@@ -545,15 +554,15 @@ textarea{
 			#header .offers_profile .profile .login_hrefs a{
 				text-decoration:underline;
 				color:#939191;
-				margin-right:20px;
 				font-size:18px;
+				margin-right:20px;
 			}
 			
 			.login_hrefs a {
-				color: #939191;
-				font-size: 18px;
-				margin-right: 20px;
-				text-decoration: underline;
+				color:#939191;
+				font-size:20px;
+				margin-right:20px;
+				text-decoration:underline;
 			}
 			
 			
@@ -616,10 +625,10 @@ textarea{
 			height:29px;
 			font-size:21px;
 			text-transform:uppercase;
-			border-radius:9px;
-			-moz-border-radius:9px;
-			-khtml-border-radius:9px;
-			-webkit-border-radius:9px;
+			border-radius:10px;
+			-moz-border-radius:10px;
+			-khtml-border-radius:10px;
+			-webkit-border-radius:10px;
 			z-index:1;
 		}
 		#header .main_menu .post_offer a{
@@ -647,7 +656,7 @@ textarea{
 			#header .menu li{
 				float:left;
 				padding-top:4px;
-				width:237px;
+				width:237.5px;
 			}
 				#header .menu li a{
 					background:url(images/menu_back.jpg) repeat-x 0px -4px;
@@ -740,8 +749,8 @@ textarea{
 		}
 		#content .premium_top .premium_offer{
 			float:left;
-			width:170px;
-			margin:22px 30px 0px 2px;
+			width:175px;
+			margin:22px 26.5px 0px 0px;
 		}
 			.premium_offer a.img, .offer a.img, .expert a.img, .agency a.img{
 				display:block;
@@ -756,8 +765,8 @@ textarea{
 					-o-box-shadow:0 2px 10px 0px;
 				}
 				#content .premium_top .premium_offer a.img img{
-					width:168px;
-					height:118px;
+					width:175px;
+					height:125px;
 				}
 			#content .premium_top .premium_offer .title{
 				display:inline-block;
@@ -1826,7 +1835,7 @@ textarea{
 				margin:5px 0px 10px;
 			}
 				#content .left .contacts p.title{
-					font-family:"Trebuchet MS", Helvetica, Arial, sans-serif;
+					font-family:MyriadProCondWeb, Helvetica, Arial, sans-serif;
 					font-size:24px;
 				}
 				#content .left .contacts .data{
@@ -2083,7 +2092,7 @@ textarea{
 			padding-left:0px;
 		}
 			#footer .wrapper ul li a{
-				font-size:19px;
+				font-size:21px;
 			}
 		#footer .copyright{
 			position:absolute;
