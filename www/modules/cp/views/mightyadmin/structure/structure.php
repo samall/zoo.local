@@ -44,7 +44,7 @@ foreach($data as $row)
 			},
 			items: {
 			//	"add": {name: "Создать", icon: "add"},
-			//	"edit": {name: "Изменить", icon: "edit"},
+				"edit": {name: "Изменить", icon: "edit"},
 			//	"paste": {name: "Paste", icon: "paste"},
 				"delete": {name: "Удалить", icon: "delete"},
 			}

@@ -21,13 +21,27 @@ class Controller_Cp_Structure extends Controller_Admin
 		$this->template->content->data = $data;
 	}
 
+	
+	public function action_edit()
+	{
+		$id = $this->request->param('id');
+		
+		$this->template->title = "Структура";
+		$this->template->content = new View('structure/edit');
+		$this->template->content->edit = new Model_Structure($id);
+		
+	}
+	
+	
 	public function action_save()
 	{
 		$id = $this->request->param('id');
 		print_r($_POST);
 		die;
-	
 	}
+	
+	
+	
 	
 	
 	public function action_delete()
