@@ -9,6 +9,7 @@
     <tr>
     <th>Название</th>
 	<th>Alias</th>
+	<th>Парамерты</th>
     </tr>
 </thead>
 <tbody>
@@ -20,7 +21,8 @@ foreach($data as $row)
 ?>
 	<tr id="node-<?=$row->id?>">
 		<td class="context-menu-one" id="<?=$row->id?>"><?=$row->name?></td>
-		<td>--add</td>
+		<td><?=$row->alias?></td>
+		<td><a href="/cp/catalog_category/parameters/<?=$row->id?>">настроить</a></td>
 	</tr>
 
 <?php	
