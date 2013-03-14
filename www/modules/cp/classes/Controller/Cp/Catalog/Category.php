@@ -40,15 +40,6 @@ class Controller_Cp_Catalog_Category extends Controller_Admin
 		die("Coming SOoOn...");
 	}
 
-	
-	public function action_parameters()
-	{
-		$id = $this->request->param('id');
-		
-		//$params = ORM::factory('Catalog_Category_Parameters')->find_all();
-		die("Soon");
-		
-	}
 
 	
 }

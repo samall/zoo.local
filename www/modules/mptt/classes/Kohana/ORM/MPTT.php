@@ -263,10 +263,10 @@ class Kohana_ORM_MPTT extends ORM {
 		{
 			$scope = self::get_next_scope();
 		}
-		elseif ( ! self::scope_available($scope))
-		{
-			return FALSE;
-		}
+		//elseif ( ! self::scope_available($scope))
+		//{
+		//	return FALSE;
+		//}
 
 		$this->{$this->scope_column} = $scope;
 		$this->{$this->level_column} = 1;

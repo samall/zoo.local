@@ -16,7 +16,7 @@ return array(
 		array('link'=>'#', 'title'=>'Каталог', 'icon'=>'icon-cube', 'childs'=>array(
 			
 			array('link'=>'/cp/catalog_category/index', 'title'=>'Категории'),
-			array('link'=>'/cp/article/index', 'title'=>'')
+			array('link'=>'/cp/catalog_template/index', 'title'=>'--')
 		))
 	), 
 
