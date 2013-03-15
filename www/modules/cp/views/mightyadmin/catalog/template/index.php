@@ -1,12 +1,8 @@
-<?php
-if(!count($dataset)){
-?>
+
 <div class="top-table">
 <a href="/cp/catalog_template/edit" class="bt green small">Добавить</a>
 </div>
-<?php
-}
-?>
+
 
 <div class="table-wrapper">
 <table>
@@ -46,9 +42,9 @@ foreach($dataset as $d)
 		} 
 		?>
 		</td>
-		<td>
-			<a href="/<?=$d->id;?>">Вверх</a> | 
-			<a href="/<?=$d->id;?>">Вниз</a>
+		<td align="center">
+			<a href="/cp/catalog_template/moveup/<?=$d->id;?>">Up</a> | 
+			<a href="/cp/catalog_template/movedown/<?=$d->id;?>">Down</a>
 		</td>
 		<td>
 		<?php

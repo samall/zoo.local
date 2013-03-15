@@ -193,7 +193,7 @@ class Kohana_ORM_MPTT extends ORM {
 	 * @access  public
 	 * @return  mixed
 	 */
-	public function save(Validation $validation = NULL)
+	public function save()
 	{
 		if ( ! $this->loaded())
 		{
@@ -201,7 +201,7 @@ class Kohana_ORM_MPTT extends ORM {
 		}
 		elseif ($this->loaded() === TRUE)
 		{
-			return parent::save($validation);
+			return parent::save();
 		}
 		
 		return FALSE;
@@ -263,10 +263,10 @@ class Kohana_ORM_MPTT extends ORM {
 		{
 			$scope = self::get_next_scope();
 		}
-		//elseif ( ! self::scope_available($scope))
-		//{
-		//	return FALSE;
-		//}
+		elseif ( ! self::scope_available($scope))
+		{
+			return FALSE;
+		}
 
 		$this->{$this->scope_column} = $scope;
 		$this->{$this->level_column} = 1;
@@ -539,7 +539,7 @@ class Kohana_ORM_MPTT extends ORM {
 				. ' WHERE `'.$this->left_column.'` >= '.$this->left().' AND `'
 				. $this->right_column.'` <= '.$this->right().' AND `'
 				. $this->scope_column.'` = '.$this->scope(), TRUE);
-				
+
 			$this->delete_space($this->left(), $size);
 		}
 		catch (Kohana_Exception $e)
@@ -843,7 +843,7 @@ class Kohana_ORM_MPTT extends ORM {
 	 */
 	protected function lock()
 	{
-	//	$this->_db->query(NULL, 'LOCK TABLE '.$this->_table_name.' WRITE', TRUE);
+		$this->_db->query(NULL, 'LOCK TABLE '.$this->_table_name.' WRITE', TRUE);
 	}
 
 	/**
@@ -854,7 +854,7 @@ class Kohana_ORM_MPTT extends ORM {
 	 */
 	protected function unlock()
 	{
-	//	$this->_db->query(NULL, 'UNLOCK TABLES', TRUE);
+		$this->_db->query(NULL, 'UNLOCK TABLES', TRUE);
 	}
 
 	/**
