@@ -13,14 +13,14 @@
 									<option value="2">Купить</option>
 								</select>
 							</td>
-							<td class="row3">Тип объекта:</td>
+							<td class="row3">Категория объекта:</td>
 							<td class="row4">
-								<select name="type_object">
+								<select name="catalog_category_id" id="catalog_category">
 									<option value="0">не выбрано</option>
 									<?php
-									foreach($type_object as $row)
+									foreach($catalog_category as $row)
 									{ ?>
-									<option value="<?=$row->id?>" <?=$edit->type_object == $row->id ? 'selected="selected"' : ''?>><?=$row->name?></option>
+									<option value="<?=$row->id?>" <?=$edit->catalog_category_id == $row->id ? 'selected="selected"' : ''?>><?=$row->name?></option>
 									<?php }
 									?>
 								</select>
@@ -109,6 +109,57 @@
 								</div>
 							</td>
 						</tr>
+						
+						<tr>
+						
+						<td colspan="4">
+						<div id="category_template">
+						<?php
+						if(!empty($template)){
+						?>
+							<table>
+				<tbody>
+		<?php
+
+foreach($template as $d)
+{
+	if($d->lft == 1) continue;
+?>
+	<tr <?=($d->rgt-$d->lft>1) ? 'style="background:#f8f8f8;"': ''?>>
+		<td  class="row1">
+		<?php
+		if($d->rgt-$d->lft>1)
+		{ ?>
+		<strong><?=$d->title?></strong>
+		<?php 
+		}else{
+		?>
+	 	<?=str_repeat('&nbsp;&nbsp;', $d->lvl)?><?=$d->title?>
+		<?php
+		}
+		?>
+		</td>
+		<td  class="row2">
+			<?php
+			if($d->rgt-$d->lft==1)
+			{ ?>
+			<input type="text" name="param-<?=$d->id?>" value="" />
+		<?php }?>
+		</td>
+    </tr>
+
+<?php
+	}
+}
+?>
+
+</tbody>
+</table>
+						
+						</div>
+						</td>
+						</tr>
+						
 						<tr>
 							<td class="row1 b">Введите проверочный код:
 							</td>

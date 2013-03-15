@@ -16,14 +16,12 @@ class Controller_User_Board extends Controller_Frontend {
 	public function action_edit()
 	{
 		$id = $this->request->param('id');
-		$catalog = new Model_catalog($id);
+		$catalog = new Model_Catalog($id);
 		
 		$this->template->content = new View('user/board/edit_advert');
 		$this->template->content->edit = $catalog;
 		$this->template->content->path = $catalog->image_path;
-
 		$this->template->content->images = $catalog->images();
-		
 		$this->template->content->region = array('region'	=> null, 'subregion' => null);
 		
 		if($catalog->loaded()){
@@ -31,9 +29,12 @@ class Controller_User_Board extends Controller_Frontend {
 				'region'	=> ORM::factory('Geo_Region')->where('id', '=', $catalog->geo_region_id)->find()->name,
 				'subregion' => ORM::factory('Geo_City')->where('id', '=', $catalog->geo_city_id)->find()->name
 			);
+			
+			$t = new Model_Catalog_Template();
+			$this->template->content->template = $t->fulltree($catalog->catalog_category_id);
 		}
 		
-		$this->template->content->type_object = ORM::factory('Catalog_Type')->find_all();
+		$this->template->content->catalog_category = ORM::factory('Catalog_Category')->find_all();
 	}
 
 	public function action_save()
@@ -72,6 +73,7 @@ class Controller_User_Board extends Controller_Frontend {
 			$a = array_merge($a, array('create'=>time(), 'images' => serialize($uploaded)));
 		}
 		
+
 		$catalog->values($a);
 		$catalog->save();
 		

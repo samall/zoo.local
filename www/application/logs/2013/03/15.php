@@ -208,3 +208,22 @@
 #6 X:\home\zoo.local\www\system\classes\Kohana\Request.php(991): Kohana_Request_Client->execute(Object(Request))
 #7 X:\home\zoo.local\www\index.php(118): Kohana_Request->execute()
 #8 {main} in X:\home\zoo.local\www\modules\cp\classes\Controller\Cp\Catalog\Template.php:97
+2013-03-15 13:36:29 --- EMERGENCY: Kohana_Exception [ 0 ]: The catalog_cateogory_id property does not exist in the Model_Catalog class ~ MODPATH\orm\classes\Kohana\ORM.php [ 684 ] in X:\home\zoo.local\www\modules\orm\classes\Kohana\ORM.php:600
+2013-03-15 13:36:29 --- NOTICE: #0 X:\home\zoo.local\www\modules\orm\classes\Kohana\ORM.php(600): Kohana_ORM->get('catalog_cateogo...')
+#1 X:\home\zoo.local\www\application\classes\Controller\User\board.php(34): Kohana_ORM->__get('catalog_cateogo...')
+#2 X:\home\zoo.local\www\system\classes\Kohana\Controller.php(84): Controller_User_Board->action_edit()
+#3 [internal function]: Kohana_Controller->execute()
+#4 X:\home\zoo.local\www\application\classes\Request\Client\Internal.php(118): ReflectionMethod->invoke(Object(Controller_User_Board))
+#5 X:\home\zoo.local\www\system\classes\Kohana\Request\Client.php(114): Request_Client_Internal->execute_request(Object(Request), Object(Response))
+#6 X:\home\zoo.local\www\system\classes\Kohana\Request.php(991): Kohana_Request_Client->execute(Object(Request))
+#7 X:\home\zoo.local\www\index.php(118): Kohana_Request->execute()
+#8 {main} in X:\home\zoo.local\www\modules\orm\classes\Kohana\ORM.php:600
+2013-03-15 13:48:14 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected $end ~ APPPATH\views\default\user\board\edit_advert.php [ 280 ] in :
+2013-03-15 13:48:14 --- NOTICE: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2013-03-15 13:48:35 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected $end ~ APPPATH\views\default\user\board\edit_advert.php [ 279 ] in :
+2013-03-15 13:48:35 --- NOTICE: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
+2013-03-15 13:49:16 --- EMERGENCY: ErrorException [ 4 ]: syntax error, unexpected $end ~ APPPATH\views\default\user\board\edit_advert.php [ 279 ] in :
+2013-03-15 13:49:16 --- NOTICE: #0 [internal function]: Kohana_Core::shutdown_handler()
+#1 {main} in :
