@@ -12,6 +12,11 @@
 						<p class="descr"><?=$item->description?></p>
 
 						<div class="parameters">
+						
+						<?php
+						print_r($tpl);
+						?>
+						
 							<div>
 								<span class="title">Расположение</span>
 								<p>Район:<span>Московская область</span></p>

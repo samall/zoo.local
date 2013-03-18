@@ -20,6 +20,7 @@ class Controller_User_Board extends Controller_Frontend {
 		
 		$this->template->content = new View('user/board/edit_advert');
 		$this->template->content->edit = $catalog;
+		$this->template->content->values = $catalog->get_values();
 		$this->template->content->path = $catalog->image_path;
 		$this->template->content->images = $catalog->images();
 		$this->template->content->region = array('region'	=> null, 'subregion' => null);
@@ -40,9 +41,8 @@ class Controller_User_Board extends Controller_Frontend {
 	public function action_save()
 	{
 		$id = $this->request->param('id');
-		$catalog = new Model_catalog($id);
+		$catalog = new Model_Catalog($id);
 		$a = array_merge(array('user_id'=>$this->user->pk()), $this->request->post());
-		
 		/**
 		*	New Uploaded From TMP
 		*/
@@ -73,7 +73,18 @@ class Controller_User_Board extends Controller_Frontend {
 			$a = array_merge($a, array('create'=>time(), 'images' => serialize($uploaded)));
 		}
 		
-
+		$values = array();
+		$t = new Model_Catalog_Template();
+		$tpl = $t->fulltree($this->request->post('catalog_category_id'));
+		foreach($tpl as $row)
+		{
+			if($row->lvl >= 3 && $this->request->post('param-'.$row->pk()))
+			{
+				$values[$row->pk()] = $this->request->post('param-'.$row->pk());
+			}
+		}
+		
+		$catalog->set_values($values);
 		$catalog->values($a);
 		$catalog->save();
 		

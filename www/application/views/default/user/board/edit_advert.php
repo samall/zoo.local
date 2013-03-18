@@ -119,8 +119,7 @@
 						?>
 							<table>
 				<tbody>
-		<?php
-
+<?php
 foreach($template as $d)
 {
 	if($d->lft == 1) continue;
@@ -143,7 +142,7 @@ foreach($template as $d)
 			<?php
 			if($d->rgt-$d->lft==1)
 			{ ?>
-			<input type="text" name="param-<?=$d->id?>" value="" />
+			<input type="text" name="param-<?=$d->id?>" value="<?=!empty($values[$d->id]) ? $values[$d->id] : ''?>" />
 		<?php }?>
 		</td>
     </tr>

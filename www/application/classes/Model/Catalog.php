@@ -12,6 +12,18 @@ class Model_Catalog extends ORM {
 	}
 	
 	
+	public function get_values()
+	{
+		if(empty($this->data)) return array(); 
+		return unserialize($this->data);
+	}
+	
+	public function set_values(array $values)
+	{
+		$this->data = serialize($values);
+	}
+	
+	
 	public function delete()
 	{
 		$this->delete_images($this->images());
