@@ -1,9 +1,14 @@
+<div class="top-table">
+<a href="/cp/structure/edit" class="bt green small">Добавить</a>
+</div>
+
 <div class="table-wrapper">
 <table id="tree-table">
 <thead>
     <tr>
     <th>Название</th>
 	<th>Параметры</th>
+	<th>Перемещение</th>
     </tr>
 </thead>
 <tbody>
@@ -15,6 +20,10 @@ foreach($data as $row)
 	<tr id="node-<?=$row->id?>" <?=$row->parent_id == 0 ? '' : 'class="child-of-node-'.$row->parent .'"'?>>
 		<td class="first"><span class="<?=$row->has_children()? 'folder': 'file'?> context-menu-one" id="<?=$row->id?>"><?=$row->title?></span></td>
 		<td><?=$row->alias?></td>
+		<td align="center">
+			<a href="/cp/structure/moveup/<?=$row->id;?>">Up</a> | 
+			<a href="/cp/structure/movedown/<?=$row->id;?>">Down</a>
+		</td>
 	</tr>
 <?php	
 }

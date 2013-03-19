@@ -1011,5 +1011,43 @@ class Kohana_ORM_MPTT extends ORM {
 				return parent::__get($column);
 		}
 	}
+	
+	/**
+	 * The function checks whether the node is the first in a tree on the same level
+	 * 
+	 * @return id of prev node or false if it is first
+	 */
+	public function is_not_first()
+	{
+		$prevnode = self::factory($this->object_name())
+					->where($this->scope_column, '=', $this->scope())
+					->where($this->right_column, '=', ($this->left()-1))
+					->find();
+		if($this->level() == $prevnode->level())
+		{
+			return $prevnode;
+		} else return false;
+		
+		
+	}
+	
+	/**
+	 * The function checks whether the node is the last in a tree on the same level
+	 * 
+	 * @return id of next node or false if it is last
+	 */
+	public function is_not_last()
+	{
+		$nextnode = self::factory($this->object_name())
+					->where($this->scope_column, '=', $this->scope())
+					->where($this->left_column, '=', ($this->right()+1))
+					->find();
+		if($this->level() == $nextnode->level())
+		{
+			return $nextnode;
+		} else return false;
+		
+		
+	}
 
 } // End ORM MPTT

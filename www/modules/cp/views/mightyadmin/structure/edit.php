@@ -1,4 +1,4 @@
-<form id="structure-edit" class="form_validation_ttip" method="post" name="user-edit" action="<?=$action?><?=$edit->id?>">
+<form id="structure-edit" class="form_validation_ttip" method="post" name="user-edit" action="/cp/structure/save/<?=$edit->id?>">
 
 <div class="widget minimizable g4">
 <header>
@@ -76,33 +76,30 @@
 				<div class="entry">
 					<textarea placeholder="SEO description" name="description" class="elastic" style="overflow: hidden;"><?=$edit->description?></textarea>
 				</div>
-			</div>		
+			</div>	
+
+			<div class="field g4">
+				<label>Модуль *</label>
+				<div class="entry">
+					<input type="text" name="module" value="<?=$edit->module?>" placeholder="Module key" />
+				</div>
+			</div>	
+			
+			<div class="field g4">
+				<label>Параметры *</label>
+				<div class="entry">
+					<input type="text" name="params" value="<?=$edit->params?>" placeholder="URI params" />
+				</div>
+			</div>	
 
 			<div class="cf"></div>					
 		</section>
 	</div>
 </div>
-
+<footer class="pane">
+	<a class="bt" href="javascript:$('#structure-edit').submit();">Сохранить</a>
+</footer>
 </div>
-
-
-<div class="widget minimizable g4">
-<header>
-	<i class="icon-paper"><div class="shadow"></div></i>
-	<div class="bg" style="height: 33px;"></div><h2>Модуль</h2>
-	<div class="collapse-bt"></div>
-</header>
-	<div class="widget-section">
-		<div class="content">
-			<?=$module?>	
-			<div class="cf"></div>						
-		</div>
-		<footer class="pane">
-			<a class="bt" href="javascript:$('#structure-edit').submit();">Сохранить</a>
-		</footer>
-	</div>
-</div>
-
 
 </form>
 

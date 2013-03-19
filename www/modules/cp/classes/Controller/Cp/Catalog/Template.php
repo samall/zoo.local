@@ -89,22 +89,27 @@ class Controller_Cp_Catalog_Template extends Controller_Admin
 	
 	public function move($id, $direct)
 	{
-		$cat_id = Session::instance()->get('category_id');
-		
 		$node = new Model_Catalog_Template($id);
 		
 		$offset = $direct == 'up' ? $node->lft-2 : $node->lft+2;
-		$t = ORM::factory('Catalog_Template')->where('parent_id','=', $node->parent_id)->where('scope', '=', $node->scope)->where('lft', "=", $offset)->find();
 		
-		if($t->loaded()){
+		//$t = ORM::factory('Structure')->where('parent_id','=', $node->parent_id)->where('scope', '=', $node->scope)->where('lft', "=", $offset)->find();
+		
+		if($node->loaded())
+		{
 		
 			if($direct == 'up'){
+				$t = $node->is_not_first();
+				
 				$node->move_to_prev_sibling($t);
 			}elseif($direct == 'down'){
+			
+				$t = $node->is_not_last();
+				
 				$node->move_to_next_sibling($t);
 			}
-		
 		}
+		
 		HTTP::redirect('cp/catalog_template/index/'.$cat_id);
 	}
 	
