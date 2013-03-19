@@ -4,12 +4,10 @@
 <div class="rainbow"></div>
 <div class="categories">
 		<ul class="auto_width">
-			<li><a href="/" <?=$active_type == null ? 'class="active"' : ''?>>Все</a></li>
-		
 		<?php
-		foreach($catalog_types as $type){	
+		foreach($catalog_categories as $cat){	
 		?>
-		<li><a href="/index/new/<?=$type->id?>" <?=$active_type == $type->id ? 'class="active"' : ''?>><?=$type->name?></a></li>
+		<li><a href="/catalog/category/<?=$cat->id?>" <?=$active_cat == $cat->id ? 'class="active"' : ''?>><?=$cat->name?></a></li>
 		<?php
 		}
 		?>
@@ -83,7 +81,7 @@
 	foreach($dataset as $row){
 	
 		$images = $row->images();
-		$image = !empty($images[0]) ? $row->image_path . $images[0] : '/assets/nofoto.png';
+		$image = !empty($images[0]) ? $row->image_path . $images[0] : '/assets/themes/default/images/nofoto.png';
 	
 	?>
 	

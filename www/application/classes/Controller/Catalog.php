@@ -6,6 +6,20 @@ class Controller_Catalog extends Controller_Frontend {
 	{
 		
 	}
+	
+	
+	public function action_category()
+	{
+		$cat = (int)$this->request->param('id');
+		
+		$catalog = ORM::factory('Catalog')->where('published', '=', '1')->where('catalog_category_id', '=', $cat)->order_by('id', 'DESC')->limit(25)->find_all();
+		$this->template->content = new View('index');
+		$this->template->content->dataset = $catalog;
+		$this->template->content->active_cat = $cat;
+		$this->template->content->catalog_categories = ORM::factory('Catalog_Category')->find_all();
+	}
+	
+	
 		
 	/**
 	*	Объявление подробно
