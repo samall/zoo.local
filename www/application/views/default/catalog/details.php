@@ -12,12 +12,49 @@
 						<p class="descr"><?=$item->description?></p>
 
 						<div class="parameters">
-						
+						<?php 
+						foreach($tpl as $row)
+						{
+							if($row->has_children() && $row->lvl >1)
+							{
+								$childs = array();
+								$ch = $row->children();
+								
+								foreach($ch as $c)
+								{
+									if(!empty($data[$c->id]))
+									{
+										$value = $data[$c->id];
+									}else{
+										$value = '';	
+									}
+				
+									if($value != '')
+									{
+										$childs[] = $c;
+									}
+								}
+				
+								if(count($childs)>0)
+								{
+						?>
+							<div>
+								<span class="title"><?=$row->title?></span>
 						<?php
-						print_r($tpl);
+								foreach($childs as $ch)
+									{
+						?>
+								<p><?=$ch->title?>:<span><?=$data[$ch->id]?></span></p>
+						<?php
+									}
+								echo "</div>";
+								}
+							}
+						}
+						
 						?>
 						
-							<div>
+							<!--<div>
 								<span class="title">Расположение</span>
 								<p>Район:<span>Московская область</span></p>
 								<p>Адрес:<span>д. Ватутинки (Ленинский район)</span></p>
@@ -36,46 +73,9 @@
 								<p>Санузлы:<span>4 не указано</span></p>
 								<p>Вид:<span>загородный коттедж</span></p>
 								<p>Высота потолков:<span>3,40 м</span></p>
-							</div>
+							</div>-->
 
-							<div>
-								<span class="title">&nbsp;</span>
-								<p>Площадь:<span>442 м2</span></p>
-								<p>Комнат:<span>7-комнатный</span></p>
-								<p>Санузлы:<span>4 не указано</span></p>
-								<p>Вид:<span>загородный коттедж</span></p>
-								<p>Высота потолков:<span>3,40 м</span></p>
-							</div>
-
-							<div>
-								<span class="title">Что есть</span>
-								<p>Электричество:<span>разведено по дому</span></p>
-								<p>Канализация:<span>септик</span></p>
-								<p>Водопровод:<span>скважина</span></p>
-								<p>Бассейн:<span>нет</span></p>
-								<p>Интернет:<span>есть</span></p>
-								<p>Сауна или баня:<span>нет</span></p>
-							</div>
-
-							<div>
-								<span class="title">&nbsp;</span>
-								<p>Электричество:<span>разведено по дому</span></p>
-								<p>Канализация:<span>септик</span></p>
-								<p>Водопровод:<span>скважина</span></p>
-								<p>Бассейн:<span>нет</span></p>
-								<p>Интернет:<span>есть</span></p>
-								<p>Сауна или баня:<span>нет</span></p>
-							</div>
-
-							<div>
-								<span class="title">Охрана</span>
-								<p>Сторож:<span>есть</span></p>
-							</div>
-
-							<div>
-								<span class="title">&nbsp;</span>
-								<p>Сторож:<span>есть</span></p>
-							</div>
+							
 						</div>
 					</div>
 

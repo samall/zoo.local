@@ -31,48 +31,14 @@ class Controller_Catalog extends Controller_Frontend {
 	
 		if(!$item->loaded() || $item->published == 0){ die("Такого объявления не существует (сделать нормальную страницу)"); }
 	
-		$values = $item->get_values();
 		// получить шаблон по категории
 		$t = new Model_Catalog_Template();
 		$tpl = $t->fulltree($item->catalog_category_id);
-
 		$data = $item->get_values();
-		$res = array();
-		
-		foreach($tpl as $row)
-		{
-			if($row->rgt-$row->lft > 1)
-			{
-				$childs = array();
-				foreach($tpl as $child)
-				{
-//				echo $data[$child->id];
-				
-					if(!empty($data[$child->id]))
-					{
-						$value = $data[$child->id];
-					}else{
-						$value = '';	
-					}
-					
-					if($child->parent_id == $row->pk() && $value != '')
-					{
-						$childs[] = $child;
-					}
-				}
-				
-				if(count($childs)>0)
-				{
-					$res[] = $row;
-					array_merge($res, $childs);
-				}
-			}else{
-				$res[] = $row;
-			}
-		}
 	
 		$this->template->content = new View('catalog/details');
-		$this->template->content->tpl = $res;
+		$this->template->content->tpl = $tpl;
+		$this->template->content->data = $data;
 		$this->template->content->item = $item;
 		$this->template->content->owner = new Model_User($item->user_id);
 	}
