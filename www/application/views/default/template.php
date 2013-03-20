@@ -115,7 +115,7 @@
 
 		<div class="menu">
 			<ul>
-				<li class="it_1"><a href="#" class="active" name="sell">Продать</a></li>
+				<li class="it_1"><a href="#" name="sell">Продать</a></li>
 				<li class="it_2"><a href="#" name="buy">купить</a></li>
 				<li class="it_3"><a href="#" name="lease">сдать</a></li>
 				<li class="it_4"><a href="#" name="rend">снять</a></li>

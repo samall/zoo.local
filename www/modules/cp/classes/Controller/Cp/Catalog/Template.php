@@ -74,6 +74,15 @@ class Controller_Cp_Catalog_Template extends Controller_Admin
 	}
 
 	
+	public function action_delete()
+	{
+		$id = $this->request->param('id');
+		$cat_id = Session::instance()->get('category_id');
+		$t = new Model_Catalog_Template($id);
+		$t->delete();
+		HTTP::redirect('cp/catalog_template/index/'.$cat_id);
+	}
+	
 	public function action_moveup()
 	{
 		$id = $this->request->param('id');
@@ -90,7 +99,7 @@ class Controller_Cp_Catalog_Template extends Controller_Admin
 	public function move($id, $direct)
 	{
 		$node = new Model_Catalog_Template($id);
-		
+		$cat_id = Session::instance()->get('category_id');
 		$offset = $direct == 'up' ? $node->lft-2 : $node->lft+2;
 		
 		//$t = ORM::factory('Structure')->where('parent_id','=', $node->parent_id)->where('scope', '=', $node->scope)->where('lft', "=", $offset)->find();

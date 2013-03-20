@@ -37,7 +37,11 @@ class Controller_Cp_Catalog_Category extends Controller_Admin
 	
 	public function action_delete()
 	{
-		die("Coming SOoOn...");
+		$id = $this->request->param('id');
+	
+		$cat = new Model_Catalog_Category($id);
+		$cat->delete();
+		HTTP::redirect('/cp/catalog_category/index');
 	}
 
 

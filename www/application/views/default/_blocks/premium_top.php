@@ -6,7 +6,7 @@
 foreach($premium as $row){
 
 	$images = $row->images();
-	$image = !empty($images[0]) ? $row->image_path . $images[0] : '/assets/themes/default/images/nofoto.png';
+	$image = !empty($images[0]) ? $row->image_path . $images[0] : '/assets/themes/default/images/nofoto_175x125.png';
 ?>
 
 	<div class="premium_offer">

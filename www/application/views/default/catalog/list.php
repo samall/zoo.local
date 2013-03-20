@@ -5,7 +5,7 @@
 
 	<div class="offers all_offers">
 				
-	<?php
+	<?php $i=1;
 	foreach($dataset as $row){
 	
 		$images = $row->images();
@@ -28,6 +28,7 @@
 	</div>
 	
 	<?php
+	$i++l
 	}
 	?>
 
