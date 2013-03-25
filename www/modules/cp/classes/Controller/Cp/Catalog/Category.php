@@ -9,6 +9,9 @@ class Controller_Cp_Catalog_Category extends Controller_Admin
 		$this->set_script('js/jquery.contextMenu.js');
 		$this->set_script('js/jquery.ui.position.js');
 	
+		$c = new Model_Catalog_Category();
+		
+		$t = $c->tables_exists();
 	
 		$this->template->title = "Категории каталога";
 		$this->template->content = new View('catalog/category/index');
@@ -41,6 +44,16 @@ class Controller_Cp_Catalog_Category extends Controller_Admin
 	
 		$cat = new Model_Catalog_Category($id);
 		$cat->delete();
+		HTTP::redirect('/cp/catalog_category/index');
+	}
+
+	public function action_configure()
+	{
+		$id = $this->request->param('id');
+
+		$c = new Model_Catalog_Category($id);
+		$c->create_table();
+		
 		HTTP::redirect('/cp/catalog_category/index');
 	}
 

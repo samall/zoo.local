@@ -23,6 +23,7 @@ foreach($data as $row)
 		<td class="context-menu-one" id="<?=$row->id?>"><?=$row->name?></td>
 		<td><?=$row->alias?></td>
 		<td><a href="/cp/catalog_template/index/<?=$row->id?>">настроить</a></td>
+		<td><a href="/cp/catalog_category/configure/<?=$row->id?>">make</a></td>
 	</tr>
 
 <?php	

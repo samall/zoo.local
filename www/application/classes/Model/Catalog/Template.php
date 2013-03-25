@@ -89,6 +89,7 @@ class Model_Catalog_Template extends ORM_MPTT {
 	{
 		return parent::new_scope($scope, $fields);
 	}
+	
 
 	
 
