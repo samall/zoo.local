@@ -2,7 +2,7 @@
 <html>
 <head>
 		<meta charset="UTF-8" />
-        <title>Mighty - Панель упралвения</title>
+        <title>Mighty - Панель управления</title>
         <!-- Optimized mobile viewport -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         

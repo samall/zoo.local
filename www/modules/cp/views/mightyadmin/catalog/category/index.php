@@ -10,6 +10,7 @@
     <th>Название</th>
 	<th>Alias</th>
 	<th>Парамерты</th>
+	<th></th>
     </tr>
 </thead>
 <tbody>
