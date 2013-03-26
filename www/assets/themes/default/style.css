@@ -728,9 +728,9 @@ textarea{
 }
 	/*  премиум блок под шапкой  */
 	#content .premium_top{
-		background:url(images/premium_shadow.png) no-repeat 0px 35px;
+		1background:url(images/premium_shadow.png) repeat-x 0px 35px;
 		padding-top:3px;
-		margin-right:-32px;
+		margin-right:-30px;
 		min-height:250px;
 	}
 		p.premium_title{
@@ -777,7 +777,7 @@ textarea{
 	/*  Левый блок (контент)  */
 	#content .left{
 		float:left;
-		width:900px;
+		width:950px;
 	}
 		#content .left p.title{
 			font-size:30px;
@@ -934,20 +934,25 @@ textarea{
 
 		/*  ПРЕДЛОЖЕНИЯ  */
 		#content .left .offers{
-			margin:0px -13px 0px 0px;
+			margin:0px 0px 0px 0px;
 		}
 			#content .offers .offer{
 				float:left;
-				width:168px;
-				margin:0px 11px 15px 2px;
+				1width:166px;
+				margin:0px 27px 15px 0px;
 			}
+			
+			#content .offers .offer.last{
+				margin:0px 0px 15px 0px;
+			}
+			
 				#content .offers .offer a.img img{
 					width:166px;
 					height:100px;
 				}
 				#content .offers .offer .descr{
 					display:inline-block;
-					margin:9px 0px 5px 0px;
+					margin:10px 0px 5px 0px;
 					line-height:17px;
 					font-size:16px;
 				}
@@ -957,10 +962,10 @@ textarea{
 					font-size:15px;
 					position:relative;
 					padding:4px 7px;
-					border-radius:4px;
-					-moz-border-radius:4px;
-					-khtml-border-radius:4px;
-					-webkit-border-radius:4px;
+					border-radius:5px;
+					-moz-border-radius:5px;
+					-khtml-border-radius:5px;
+					-webkit-border-radius:5px;
 				}
 					#content .offers .offer .date_id .id{
 						position:absolute;
@@ -1078,13 +1083,23 @@ textarea{
 			}
 			/*  поправка отступа для блоков в "МОИ ПРЕДЛОЖЕНИЯ"  */
 			#content .left .my_offers .offer_wrapper{
-				margin:0px 20px 13px 0px;
+				!margin:0px 20px 13px 0px;
+				width:50%; margin: 0px 0px 13px 0;
 			}
 				#content .left .all_offers .offer_wrapper a.url{
 					display:block;
-					margin:0px 0px 3px 2px;
+					margin:0px 35px 3px 2px;
 					font-size:24px;
+					white-space:nowrap;
+					overflow:hidden;
+					position:relative;
 				}
+				
+				#content .left .all_offers .offer_wrapper a span{
+					display:block; position:absolute; width:30px; height:32px; right:0; top:0; background:url(images/title-smooth.png) top right repeat-y;
+				}
+				
+				
 					#content .left .all_offers .offer_wrapper a.url sup{
 						font-size:14px;
 						font-weight:bold;
@@ -1684,7 +1699,7 @@ textarea{
 		}
 			#content .left .left_side{
 				float:left;
-				width:588px;
+				width:610px;
 			}
 				#content .left .left_side .descr{
 					font-size:18px;
@@ -1722,7 +1737,7 @@ textarea{
 				
 			#content .left .right_side{
 				float:right;
-				width:296px;
+				width:292px;
 				margin-top:5px;
 			}
 				#content .left .right_side .photos{
@@ -1731,11 +1746,11 @@ textarea{
 					#content .left .right_side .photos .big{
 						display:block;
 						position:relative;
-						width:294px;
-						height:178px;
+						width:290px;
+						height:176px;
 					}
 						#content .left .right_side .photos .big img{
-							width:292px;
+							width:290px;
 							height:176px;
 						}
 						#content .left .right_side .photos .big .zoom{
@@ -2034,14 +2049,14 @@ textarea{
 	/*  блок справа (премиум)  */
 	#content .right{
 		float:right;
-		width:253px;
+		width:210px;
 	}
 		#content .right .premium_title{
 			height:auto;
-			margin:5px 0px 5px;
+			margin:5px 0px 6px;
 		}
 		#content .premium_right{
-			background:#ececec url(images/premium_right_rainbow.gif) no-repeat 0px 0px;
+			background:#ececec url(images/premium_right_rainbow.png) no-repeat 0px 0px;
 		}
 			#content .premium_right a.to_premium{
 				float:right;
@@ -2054,16 +2069,17 @@ textarea{
 				margin-top:0px;
 			}
 				#content .premium_right .premium_offer{
-					width:194px;
+					width:210px;
 					margin:0px auto 0px;
 				}
 					#content .premium_right .premium_offer a.img img{
-						width:192px;
-						height:118px;
+						width:175px;
+						height:125px;
+						margin:0px 17px;
 					}
 					#content .premium_right .premium_offer a.title{
 						display:inline-block;
-						margin:8px 0px 14px 2px;
+						margin:8px 17px 14px 17px;
 						color:#000;
 						font-size:16px;
 					}

@@ -14,19 +14,47 @@ class Model_Catalog extends ORM {
 	
 	public function get_values()
 	{
-		if(empty($this->data)) return array(); 
-		return unserialize($this->data);
+		$cat = new Model_Catalog_Category($this->catalog_category_id);
+		$ret = array();
+		$query = "SELECT * FROM `".$cat->name()."` WHERE `catalog_id`='".$this->pk()."'";
+		$result = DB::query(Database::SELECT, $query)->execute()->current();
+		
+		if(!$result) return array();
+		
+		foreach($result as $k=>$v)
+		{
+			$k = str_replace('param_', '', $k);
+			$ret[$k] = $v;
+		}
+		
+		return $ret;
 	}
 	
 	public function set_values(array $values)
 	{
-		$this->data = serialize($values);
+		$cat = new Model_Catalog_Category($this->catalog_category_id);
+		
+		$query = "REPLACE INTO `".$cat->name()."` SET catalog_id='".$this->pk()."', ";
+		
+		foreach($values as $key=>$val)
+		{
+			$qp[] = "`".$key."`='".$val."'";
+		}
+		$query .= implode(", ", $qp);
+		$query .=";";
+		return DB::query(Database::INSERT, $query)->execute();
 	}
 	
+	public function delete_values()
+	{
+		$cat = new Model_Catalog_Category($this->catalog_category_id);
+		return DB::query(Database::DELETE, "DELETE FROM `".$cat->name()."` WHERE catalog_id='".$this->pk()."'");
+	}
 	
 	public function delete()
 	{
 		$this->delete_images($this->images());
+		$this->delete_values();
 		parent::delete();
 	}
 	

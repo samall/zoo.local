@@ -55,40 +55,41 @@ for ($i = $n7; $i <= $n8; $i++)
 }
 
 ?>
-<p class="pagination">
 
+<span class="text">Страница:</span>
+<ul>
 	<?php if ($first_page !== FALSE): ?>
-		<a href="<?php echo HTML::chars($page->url($first_page)) ?>" rel="first"><?php echo __('First') ?></a>
+		<li class="arrows"><a href="<?php echo HTML::chars($page->url($first_page)) ?>">&lt;&lt;&lt;</a></li>
 	<?php else: ?>
-		<?php echo __('First') ?>
+		<li class="arrows"><a>&lt;&lt;&lt;</a></li>
 	<?php endif ?>
 
 	<?php if ($previous_page !== FALSE): ?>
-		<a href="<?php echo HTML::chars($page->url($previous_page)) ?>" rel="prev"><?php echo __('Previous') ?></a>
+		<li class="arrows"><a href="<?php echo HTML::chars($page->url($previous_page)) ?>" rel="prev">&lt;&lt;</a></li>
 	<?php else: ?>
-		<?php echo __('Previous') ?>
+		<li class="arrows"><a>&lt;&lt;</a></li>
 	<?php endif ?>
 
 	<?php foreach ($links as $number => $content): ?>
 
 		<?php if ($number === $current_page): ?>
-			<strong><?php echo $content ?></strong>
+			<li><span><strong><?php echo $content ?></strong></span></li>
 		<?php else: ?>
-			<a href="<?php echo HTML::chars($page->url($number)) ?>"><?php echo $content ?></a>
+			<li><a href="<?php echo HTML::chars($page->url($number)) ?>"><?php echo $content ?></a></li>
 		<?php endif ?>
 
 	<?php endforeach ?>
 
 	<?php if ($next_page !== FALSE): ?>
-		<a href="<?php echo HTML::chars($page->url($next_page)) ?>" rel="next"><?php echo __('Next') ?></a>
+		<li class="arrows"><a href="<?php echo HTML::chars($page->url($next_page)) ?>" rel="next">&gt;&gt;</a></li>
 	<?php else: ?>
-		<?php echo __('Next') ?>
+		<li class="arrows"><a>&gt;&gt;</a></li>
 	<?php endif ?>
 
 	<?php if ($last_page !== FALSE): ?>
-		<a href="<?php echo HTML::chars($page->url($last_page)) ?>" rel="last"><?php echo __('Last') ?></a>
+			<li class="arrows"><a href="<?php echo HTML::chars($page->url($last_page)) ?>" rel="last">&gt;&gt;&gt;</a></li>
 	<?php else: ?>
-		<?php echo __('Last') ?>
+		<li class="arrows"><a>&gt;&gt;&gt;</a></li>
 	<?php endif ?>
 
-</p><!-- .pagination -->
+</ul><!-- .pagination -->

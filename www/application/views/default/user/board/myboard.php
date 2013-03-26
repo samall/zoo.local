@@ -12,7 +12,7 @@
 		
 	?>
 		<div class="offer_wrapper">
-			<a class="url" href="#"><?=$row->title?>, коттедж 400 м<sup>2</sup></a>
+			<a class="url" href="#"><?=$row->title?>, коттедж 400 м<sup>2</sup><span></span></a>
 			<div class="offer">
 				<a class="img" href="#">
 					<img alt="" src="<?= $image ?>" />
@@ -43,21 +43,8 @@
 	?>
 	<div class="clear"></div>
 	<div class="nav_bar">
-		<span class="text">Страница:</span>
-		<ul>
-			<li class="arrows"><a href="#">&lt;&lt;&lt;</a></li>
-			<li class="arrows"><a href="#">&lt;&lt;</a></li>
-			<li><a href="#">1</a></li>
-			<li><span>...</span></li>
-			<li><a href="#">4</a></li>
-			<li><a class="active" href="#">5</a></li>
-			<li><a href="#">6</a></li>
-			<li><span>...</span></li>
-			<li><a href="#">1023</a></li>
-			<li class="arrows"><a href="#">&gt;&gt;</a></li>
-			<li class="arrows"><a href="#">&gt;&gt;&gt;</a></li>
-		</ul>
+		<?=$pagination?>
 	</div>	
-	
+	<div class="clear"></div>
 	<div class="btn_center"><a class="btn2" href="/user/board/edit"><span>РАЗМЕСТИТЬ ЕЩЕ ОДНО ПРЕДЛОЖЕНИЕ</span></a></div>
 </div>

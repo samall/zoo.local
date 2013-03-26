@@ -26,7 +26,7 @@ class Model_Catalog_Category extends ORM {
 			}
 		}
 	
-		$query .=" PRIMARY KEY(`id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8";
+		$query .=" PRIMARY KEY(`catalog_id`)) ENGINE=InnoDB  DEFAULT CHARSET=utf8";
 		
 		return DB::query(Database::INSERT, $query)->execute();
 	}
@@ -80,8 +80,6 @@ class Model_Catalog_Category extends ORM {
 
 		// находим новые колонки
 		$diff = array_diff($newcol, $columns);
-		
-		print_r($diff);
 		
 		foreach($diff as $col)
 		{

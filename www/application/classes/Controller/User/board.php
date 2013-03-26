@@ -6,10 +6,23 @@ class Controller_User_Board extends Controller_Frontend {
 
 	public function action_index()
 	{
-		$catalog = ORM::factory('Catalog')->where('user_id', '=', $this->user->id)->find_all();
+		$limit = 10;
+		$page = !empty($_GET['page']) ? (($_GET['page']-1)*$limit) : 0;
+		$count = ORM::factory('Catalog')->where('user_id', '=', $this->user->id)->count_all();
+		$pagination = new Pagination(array(
+			'current_page'      => array('source' => 'query_string', 'key' => 'page'),
+			'total_items'       => $count,
+			'items_per_page'    => $limit,
+			'view'              => 'pagination/floating',
+			'auto_hide'         => TRUE,
+			'first_page_in_url' => FALSE,
+		));
+	
+		$catalog = ORM::factory('Catalog')->where('user_id', '=', $this->user->id)->order_by('id','DESC')->offset($page)->limit($limit)->find_all();
 	
 		$this->template->content = new View('user/board/myboard');
 		$this->template->content->dataset = $catalog;
+		$this->template->content->pagination = $pagination->render();
 	}
 		
 		
@@ -20,10 +33,10 @@ class Controller_User_Board extends Controller_Frontend {
 		
 		$this->template->content = new View('user/board/edit_advert');
 		$this->template->content->edit = $catalog;
-		$this->template->content->values = $catalog->get_values();
 		$this->template->content->path = $catalog->image_path;
 		$this->template->content->images = $catalog->images();
 		$this->template->content->region = array('region'	=> null, 'subregion' => null);
+		$this->template->content->catalog_category = ORM::factory('Catalog_Category')->find_all();
 		
 		if($catalog->loaded()){
 			$this->template->content->region = array(
@@ -33,9 +46,12 @@ class Controller_User_Board extends Controller_Frontend {
 			
 			$t = new Model_Catalog_Template();
 			$this->template->content->template = $t->fulltree($catalog->catalog_category_id);
+			
+			$this->template->content->values = $catalog->get_values();
+		
 		}
 		
-		$this->template->content->catalog_category = ORM::factory('Catalog_Category')->find_all();
+		
 	}
 
 	public function action_save()
@@ -73,6 +89,10 @@ class Controller_User_Board extends Controller_Frontend {
 			$a = array_merge($a, array('create'=>time(), 'images' => serialize($uploaded)));
 		}
 		
+		$catalog->values($a);
+		$catalog->save();
+
+
 		$values = array();
 		$t = new Model_Catalog_Template();
 		$tpl = $t->fulltree($this->request->post('catalog_category_id'));
@@ -80,13 +100,12 @@ class Controller_User_Board extends Controller_Frontend {
 		{
 			if($row->lvl >= 3 && $this->request->post('param-'.$row->pk()))
 			{
-				$values[$row->pk()] = $this->request->post('param-'.$row->pk());
+				$values['param_'.$row->pk()] = $this->request->post('param-'.$row->pk());
 			}
 		}
 		
 		$catalog->set_values($values);
-		$catalog->values($a);
-		$catalog->save();
+	
 		
 		HTTP::redirect('/user/board/');
 	}
