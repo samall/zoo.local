@@ -45,9 +45,20 @@ class Controller_User_Board extends Controller_Frontend {
 			);
 			
 			$t = new Model_Catalog_Template();
-			$this->template->content->template = $t->fulltree($catalog->catalog_category_id);
+			$this->template->content->template = new View("user/board/tpl_params");
+			$this->template->content->template->template = $t->fulltree($catalog->catalog_category_id);
 			
 			$this->template->content->values = $catalog->get_values();
+		
+		}else{
+			$category = Session::instance()->get('edit_cat');
+			if(!empty($category))
+			{
+				$t = new Model_Catalog_Template();
+				$this->template->content->template = new View("user/board/tpl_params");
+				$this->template->content->template->template = $t->fulltree($category);
+				$this->template->content->values = array();
+			}
 		
 		}
 		
@@ -156,6 +167,19 @@ class Controller_User_Board extends Controller_Frontend {
 		str_repeat('<td></td>', (4-$i%4));
 		echo 	'</tr>
 		</table>';
+		die;
+	}
+	
+	
+	public function action_template()
+	{
+		$this->auto_render = false;
+		$cat = $this->request->param('id');
+		Session::instance()->set('edit_cat', $cat);
+		$view = new View("user/board/tpl_params");
+		$t = new Model_Catalog_Template();
+		$view->template = $t->fulltree($cat);
+		echo $view->render();
 		die;
 	}
 	

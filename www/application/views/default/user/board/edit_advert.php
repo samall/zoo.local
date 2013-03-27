@@ -116,45 +116,9 @@
 						<div id="category_template">
 						<?php
 						if(!empty($template)){
+							echo $template;
+						}
 						?>
-						<table>
-							<tbody>
-				
-							<?php
-							foreach($template as $d)
-							{
-								if($d->lft == 1) continue;
-							?>
-							<tr <?=($d->rgt-$d->lft>1) ? 'style="background:#f8f8f8;"': ''?>>
-							<td  class="row1">
-							<?php
-							if($d->rgt-$d->lft>1)
-							{ ?>
-								<strong><?=$d->title?></strong>
-							<?php 
-							}else{
-							?>
-							<?=str_repeat('&nbsp;&nbsp;', $d->lvl)?><?=$d->title?>
-							<?php
-							}
-							?>
-							</td>
-							<td  class="row2">
-							<?php
-							if($d->rgt-$d->lft==1)
-							{ ?>
-								<input type="text" name="param-<?=$d->id?>" value="<?=!empty($values[$d->id]) ? $values[$d->id] : ''?>" />
-							<?php }?>
-							</td>
-							</tr>
-
-							<?php
-								}
-							}
-							?>
-							</tbody>
-						</table>
-						
 						</div>
 						</td>
 						</tr>
@@ -171,6 +135,7 @@
 							</td>
 						</tr>
 					</table>
+					
 					<div class="btn_center">
 						<div class="btn1"><button type="submit"></button><span>СОХРАНИТЬ МОИ ИЗМЕНЕНИЯ</span></div>
 					</div>
@@ -180,6 +145,15 @@
 <script src="/assets/js/jquery.upload-1.0.2.js" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
+	
+		$(".option_wrapper").on("click",".option",function(){
+			var parent = $(this).parent();
+			var x = parent.parent().find("select option").eq($(this).prevAll(".option").length).attr("value");
+			$.post('/user/board/template/'+x, {} , function(data){
+				
+				$("#category_template").html(data);
+			});
+		});
 	
 		function ajax_popup(id)
 		{
