@@ -14,14 +14,16 @@
 		<li class="helper"></li>
 		</ul>
 </div>
-
+<?php
+if(count($dataset)){
+?>
 <div class="service">
 					<div class="fl_l">
 						<div class="options">
 							<span>Сортировать по: </span>
-							<a href="/?sort=date" <?=!empty($_GET['sort']) && $_GET['sort'] == 'date' ? 'class="active"': '' ?>>дате добавления</a>
-							<a href="/?sort=price"  <?=!empty($_GET['sort']) && $_GET['sort'] == 'price' ? 'class="active"': '' ?>>стоимости</a>
-							<a href="/?sort=square"  <?=!empty($_GET['sort']) && $_GET['sort'] == 'square' ? 'class="active"': '' ?>>площади</a>
+							<a href="<?=$_SERVER['PATH_INFO']?>?sort=date" <?=!empty($_GET['sort']) && $_GET['sort'] == 'date' ? 'class="active"': '' ?>>дате добавления</a>
+							<a href="<?=$_SERVER['PATH_INFO']?>?sort=price"  <?=!empty($_GET['sort']) && $_GET['sort'] == 'price' ? 'class="active"': '' ?>>стоимости</a>
+							<a href="<?=$_SERVER['PATH_INFO']?>?sort=square"  <?=!empty($_GET['sort']) && $_GET['sort'] == 'square' ? 'class="active"': '' ?>>площади</a>
 						</div>
 
 						<div class="options margin">
@@ -34,10 +36,13 @@
 						<div class="nav_bar">
 							<span class="text">Показывать по:</span>
 							<ul>
-								<li><a href="/?limit=5" <?=!empty($_GET['limit']) && $_GET['limit'] == 5 ? 'class="active"': '' ?>>5</a></li>
-								<li><a href="/?limit=10" <?=!empty($_GET['limit']) && $_GET['limit'] == 10 ? 'class="active"': '' ?>>10</a></li>
-								<li><a href="/?limit=20" <?=!empty($_GET['limit']) && $_GET['limit'] == 20 ? 'class="active"': '' ?>>20</a></li>
-								<li><a href="/?limit=50" <?=!empty($_GET['limit']) && $_GET['limit'] == 50 ? 'class="active"': '' ?>>50</a></li>
+								<?php
+								$limit = Session::instance()->get('pagelimit');
+								?>
+								<li><a href="/?limit=5" <?=$limit == 5 ? 'class="active"': '' ?>>5</a></li>
+								<li><a href="/?limit=10" <?=$limit == 10 ? 'class="active"': '' ?>>10</a></li>
+								<li><a href="/?limit=20" <?=$limit == 20 ? 'class="active"': '' ?>>20</a></li>
+								<li><a href="/?limit=50" <?=$limit == 50 ? 'class="active"': '' ?>>50</a></li>
 							</ul>
 						</div>
 
@@ -59,8 +64,10 @@
 					</div>
 
 					<div class="clear"></div>
-				</div>
-
+</div>
+<?php
+}
+?>
 				<div class="clear"></div>
 
 	<div class="offers">

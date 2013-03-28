@@ -15,11 +15,11 @@
 							<?php
 							if($d->rgt-$d->lft>1)
 							{ ?>
-								<strong><?=iconv("UTF-8", "WINDOWS-1251", $d->title)?></strong>
+								<strong><?=$d->title?></strong>
 							<?php 
 							}else{
 							?>
-							<?=str_repeat('&nbsp;&nbsp;', $d->lvl)?><?=iconv("UTF-8", "WINDOWS-1251", $d->title)?>
+							<?=str_repeat('&nbsp;&nbsp;', $d->lvl)?><?=$d->title?><?php //iconv("UTF-8", "WINDOWS-1251", $d->title)?>
 							<?php
 							}
 							?>

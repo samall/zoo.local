@@ -12,7 +12,30 @@ class Controller_Catalog extends Controller_Frontend {
 	{
 		$cat = (int)$this->request->param('id');
 		
-		$limit = 25;
+		if(!empty($_GET['limit'])){
+			Session::instance()->set('pagelimit', (int)$_GET['limit']);
+			$limit = (int)$_GET['limit'];
+		}else{
+			$limit = Session::instance()->get('pagelimit') ? Session::instance()->get('pagelimit') : 25;
+			//Session::instance()->set('pagelimit', 25);
+		}
+
+		$sort = !empty($_GET['sort']) ? $_GET['sort'] : '';
+
+		switch($sort){
+			case 'date':
+				$order = 'create';
+			break;
+			case 'square':
+				$order = 'square';
+			break;
+			case 'price':
+				$order = 'price';
+			break;
+			default: $order = 'id';
+		}
+			
+
 		$page = !empty($_GET['page']) ? (($_GET['page']-1)*$limit) : 0;
 		$count = ORM::factory('Catalog')->where('published', '=', '1')->where('catalog_category_id', '=', $cat)->count_all();
 		$pagination = new Pagination(array(
@@ -24,8 +47,7 @@ class Controller_Catalog extends Controller_Frontend {
 			'first_page_in_url' => FALSE,
 		));
 		
-		
-		$catalog = ORM::factory('Catalog')->where('published', '=', '1')->where('catalog_category_id', '=', $cat)->order_by('id', 'DESC')->offset($page)->limit($limit)->find_all();
+		$catalog = ORM::factory('Catalog')->where('published', '=', '1')->where('catalog_category_id', '=', $cat)->order_by($order, 'DESC')->offset($page)->limit($limit)->find_all();
 		$this->template->content = new View('index');
 		$this->template->content->dataset = $catalog;
 		$this->template->content->active_cat = $cat;

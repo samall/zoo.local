@@ -8,12 +8,12 @@ class Controller_Index extends Controller_Frontend {
 			Session::instance()->set('pagelimit', (int)$_GET['limit']);
 			$limit = (int)$_GET['limit'];
 		}else{
-			$limit = Session::instance()->get('pagelimit') ? : 25;
-			Session::instance()->set('pagelimit', 25);
+			$limit = Session::instance()->get('pagelimit') ? Session::instance()->get('pagelimit') : 25;
+			//Session::instance()->set('pagelimit', 25);
 		}
 
-		$sort = !empty($_GET['sort']) ? (int)$_GET['sort'] : '';
-		
+		$sort = !empty($_GET['sort']) ? $_GET['sort'] : '';
+
 		switch($sort){
 			case 'date':
 				$order = 'create';
